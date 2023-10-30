@@ -1,12 +1,13 @@
-import "@fontsource/vazirmatn";
+import ExampleWithLocalizationProvider from "../Components/DataGrid/DataGrid";
 import './App.css';
+import "@fontsource/vazirmatn";
 
 function App() {
   return (
-    <div className="">
-    <h1 className="text-3xl font-bold underline text-blue-700">
-      صورتجساب
-    </h1>
+    <div className="container">
+      <div className="">
+      <ExampleWithLocalizationProvider />
+      </div>
     </div>
   );
 }
