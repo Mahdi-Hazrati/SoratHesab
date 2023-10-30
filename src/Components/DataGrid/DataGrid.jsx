@@ -225,7 +225,7 @@ const Example = () => {
           // );
         }}
       >
-        Create New User
+        اضافه کردن کاربر جدید
       </Button>
     ),
     state: {
