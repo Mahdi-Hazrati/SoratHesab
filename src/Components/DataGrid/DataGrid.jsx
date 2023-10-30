@@ -32,13 +32,13 @@ const Example = () => {
     () => [
       {
         accessorKey: 'id',
-        header: 'Id',
+        header: 'شناسه کاربری',
         enableEditing: false,
         size: 80,
       },
       {
         accessorKey: 'firstName',
-        header: 'First Name',
+        header: 'نام',
         muiEditTextFieldProps: {
           type: 'email',
           required: true,
@@ -55,7 +55,7 @@ const Example = () => {
       },
       {
         accessorKey: 'lastName',
-        header: 'Last Name',
+        header: 'نام خانوادگی',
         muiEditTextFieldProps: {
           type: 'email',
           required: true,
@@ -71,7 +71,7 @@ const Example = () => {
       },
       {
         accessorKey: 'email',
-        header: 'Email',
+        header: 'ایمیل',
         muiEditTextFieldProps: {
           type: 'email',
           required: true,
@@ -87,7 +87,7 @@ const Example = () => {
       },
       {
         accessorKey: 'state',
-        header: 'State',
+        header: 'آدرس',
         editVariant: 'select',
         editSelectOptions: usStates,
         muiEditTextFieldProps: {
@@ -143,7 +143,7 @@ const Example = () => {
 
   //DELETE action
   const openDeleteConfirmModal = (row) => {
-    if (window.confirm('Are you sure you want to delete this user?')) {
+    if (window.confirm('مطمئن هستید میخواهید این کاربر را از دیتابیس حذف کنید؟')) {
       deleteUser(row.original.id);
     }
   };
@@ -173,7 +173,7 @@ const Example = () => {
     //optionally customize modal content
     renderCreateRowDialogContent: ({ table, row, internalEditComponents }) => (
       <>
-        <DialogTitle variant="h3">Create New User</DialogTitle>
+        <DialogTitle variant="h3">ساخت کاربر جدید</DialogTitle>
         <DialogContent
           sx={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}
         >
@@ -187,7 +187,7 @@ const Example = () => {
     //optionally customize modal content
     renderEditRowDialogContent: ({ table, row, internalEditComponents }) => (
       <>
-        <DialogTitle variant="h3">Edit User</DialogTitle>
+        <DialogTitle variant="h3">ویرایش کاربر</DialogTitle>
         <DialogContent
           sx={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}
         >
