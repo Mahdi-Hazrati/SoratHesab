@@ -2,10 +2,10 @@
 export const fakeData = [
   {
     id: '9s41rp',
-    firstName: 'Kelvin',
-    lastName: 'Langosh',
-    email: 'Jerod14@hotmail.com',
-    state: 'Ohio',
+    firstName: 'مهدی',
+    lastName: 'حضرتی',
+    email: 'mahdi@hotmail.com',
+    state: 'تهران',
   },
   {
     id: '08m6rx',
