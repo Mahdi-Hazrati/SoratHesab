@@ -157,6 +157,7 @@ const DataGrid = () => {
     editDisplayMode: 'modal', //default ('row', 'cell', 'table', and 'custom' are also available)
     enableEditing: true,
     getRowId: (row) => row.id,
+    enableRowSelection: true,
     muiToolbarAlertBannerProps: isLoadingUsersError
       ? {
         color: 'error',
@@ -165,7 +166,8 @@ const DataGrid = () => {
       : undefined,
     muiTableContainerProps: {
       sx: {
-        minHeight: '500px',
+        minHeight: '250px',
+        height:"300px"
       },
     },
     onCreatingRowCancel: () => setValidationErrors({}),
@@ -215,7 +217,7 @@ const DataGrid = () => {
       </Box>
     ),
     renderTopToolbarCustomActions: ({ table }) => (
-      <>
+      <div className="w-fit">
         <Button
           sx={{ color:"black", scale:"0.8"}}
           variant="text"
@@ -252,7 +254,7 @@ const DataGrid = () => {
         >
           <PictureAsPdfIcon />
         </Button>
-      </>
+      </div>
     ),
     state: {
       isLoading: isLoadingUsers,
