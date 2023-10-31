@@ -194,8 +194,8 @@ const DataGrid = () => {
 
   //DELETE action
   const openDeleteConfirmModal = (row) => {
-    if (window.confirm(`مطمئن هستید میخواهید کاربر ${row.original.id} را از دیتابیس حذف کنید؟`)) {
-      deleteUser(row.original.id);
+    if (window.confirm(`مطمئن هستید میخواهید کاربر ${row.original.invoice_number} را از دیتابیس حذف کنید؟`)) {
+      deleteUser(row.original.invoice_number);
     }
   };
 
@@ -205,7 +205,7 @@ const DataGrid = () => {
     createDisplayMode: 'modal',
     editDisplayMode: 'modal',
     enableEditing: true,
-    getRowId: (row) => row.id,
+    getRowId: (row) => row.invoice_number,
     enableRowSelection: true,
     enableSelectAll: false,
     positionToolbarAlertBanner: "none",
@@ -232,7 +232,7 @@ const DataGrid = () => {
     muiToolbarAlertBannerProps: isLoadingUsersError
       ? {
         color: 'error',
-        children: 'Error loading data',
+        children: 'خطا در بارگذاری دیتا',
       }
       : undefined,
     muiTableContainerProps: {
@@ -293,16 +293,19 @@ const DataGrid = () => {
           sx={{ color: "black", scale: "0.8" }}
           variant="text"
           onClick={() => {
-            table.setCreatingRow(true);
+            // Edit Selected ROw
+            window.alert("مدال ویرایش کاربر در این حالت باز شود")
           }}
-        >
+          >
           <BorderColorIcon />
         </Button>
         <Button
           sx={{ color: "black", scale: "0.8" }}
           variant="text"
           onClick={() => {
-            table.setCreatingRow(true);
+            // Delete Selected ROW
+            window.alert("مدال حذف کاربر در این حالت باز شود")
+            
           }}
         >
           <DeleteIcon />
@@ -343,18 +346,18 @@ const DataGrid = () => {
 function useCreateUser() {
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: async (user) => {
+    mutationFn: async (invoice) => {
       //send api update request here
       await new Promise((resolve) => setTimeout(resolve, 1000)); //fake api call
       return Promise.resolve();
     },
     //client side optimistic update
-    onMutate: (newUserInfo) => {
-      queryClient.setQueryData(['users'], (prevUsers) => [
-        ...prevUsers,
+    onMutate: (newInvoices) => {
+      queryClient.setQueryData(['invoices'], (prevInvoice) => [
+        ...prevInvoice,
         {
-          ...newUserInfo,
-          id: (Math.random() + 1).toString(36).substring(7),
+          ...newInvoices,
+          invoice_number: (Math.random() + 1).toString(36).substring(7),
         },
       ]);
     },
@@ -364,10 +367,10 @@ function useCreateUser() {
 //READ hook (get users from api)
 function useGetUsers() {
   return useQuery({
-    queryKey: ['users'],
+    queryKey: ['invoices'],
     queryFn: async () => {
       //send api request here
-      await new Promise((resolve) => setTimeout(resolve, 1000)); //fake api call
+      await new Promise((resolve) => setTimeout(resolve, 1000));
       return Promise.resolve(fakeData);
     },
     refetchOnWindowFocus: false,
@@ -378,16 +381,16 @@ function useGetUsers() {
 function useUpdateUser() {
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: async (user) => {
+    mutationFn: async (invoice) => {
       //send api update request here
       await new Promise((resolve) => setTimeout(resolve, 1000)); //fake api call
       return Promise.resolve();
     },
     //client side optimistic update
-    onMutate: (newUserInfo) => {
-      queryClient.setQueryData(['users'], (prevUsers) =>
-        prevUsers?.map((prevUser) =>
-          prevUser.id === newUserInfo.id ? newUserInfo : prevUser,
+    onMutate: (newnewInvoice) => {
+      queryClient.setQueryData(['invoices'], (prevInvoices) =>
+      prevInvoices?.map((prevInvoice) =>
+      prevInvoice.id === newnewInvoice.id ? newnewInvoice : prevInvoice,
         ),
       );
     },
@@ -404,9 +407,9 @@ function useDeleteUser() {
       return Promise.resolve();
     },
     //client side optimistic update
-    onMutate: (userId) => {
-      queryClient.setQueryData(['users'], (prevUsers) =>
-        prevUsers?.filter((user) => user.id !== userId),
+    onMutate: (invoice_id) => {
+      queryClient.setQueryData(['invoices'], (prevInvoices) =>
+      prevInvoices?.filter((invoice) => invoice.id !== invoice_id),
       );
     },
   });
@@ -433,10 +436,8 @@ const validateEmail = (email) =>
 
 function validateUser(user) {
   return {
-    firstName: !validateRequired(user.firstName)
+    customer_name: !validateRequired(user.customer_name)
       ? 'وارد کردن نام اجباری است.'
-      : '',
-    lastName: !validateRequired(user.lastName) ? 'نام خانوادگی اجباری است' : '',
-    email: !validateEmail(user.email) ? 'ایمیل نامعتبر' : '',
+      : ''
   };
 }
