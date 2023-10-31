@@ -194,7 +194,7 @@ const DataGrid = () => {
 
   //DELETE action
   const openDeleteConfirmModal = (row) => {
-    if (window.confirm(`مطمئن هستید میخواهید کاربر ${row.original.invoice_number} را از دیتابیس حذف کنید؟`)) {
+    if (window.confirm(`مطمئن هستید میخواهید کاربر ${row.original.customer_name} را از دیتابیس حذف کنید؟`)) {
       deleteUser(row.original.invoice_number);
     }
   };
@@ -401,7 +401,7 @@ function useUpdateUser() {
 function useDeleteUser() {
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: async (userId) => {
+    mutationFn: async (invoiceId) => {
       //send api update request here
       await new Promise((resolve) => setTimeout(resolve, 1000)); //fake api call
       return Promise.resolve();
