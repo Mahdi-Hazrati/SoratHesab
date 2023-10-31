@@ -198,7 +198,7 @@ const handleExportRows = (rows) => {
       : undefined,
     muiTableContainerProps: {
       sx: {
-        minHeight: '250px',
+        minHeight: '350px',
         height: "300px"
       },
     },
