@@ -25,7 +25,7 @@ import { fakeData, usStates } from './makeData';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 
-const Example = () => {
+const DataGrid = () => {
   const [validationErrors, setValidationErrors] = useState({});
 
   const columns = useMemo(
@@ -143,7 +143,7 @@ const Example = () => {
 
   //DELETE action
   const openDeleteConfirmModal = (row) => {
-    if (window.confirm('مطمئن هستید میخواهید این کاربر را از دیتابیس حذف کنید؟')) {
+    if (window.confirm(`مطمئن هستید میخواهید کاربر ${row.original.id} را از دیتابیس حذف کنید؟`)) {
       deleteUser(row.original.id);
     }
   };
@@ -285,7 +285,6 @@ function useUpdateUser() {
         ),
       );
     },
-    // onSettled: () => queryClient.invalidateQueries({ queryKey: ['users'] }), //refetch users after mutation, disabled for demo
   });
 }
 
@@ -304,20 +303,18 @@ function useDeleteUser() {
         prevUsers?.filter((user) => user.id !== userId),
       );
     },
-    // onSettled: () => queryClient.invalidateQueries({ queryKey: ['users'] }), //refetch users after mutation, disabled for demo
   });
 }
 
 const queryClient = new QueryClient();
 
-const ExampleWithProviders = () => (
-  //Put this with your other react-query providers near root of your app
+const DataGridWithProviders = () => (
   <QueryClientProvider client={queryClient}>
-    <Example />
+    <DataGrid />
   </QueryClientProvider>
 );
 
-export default ExampleWithProviders;
+export default DataGridWithProviders;
 
 const validateRequired = (value) => !!value.length;
 const validateEmail = (email) =>
@@ -331,9 +328,9 @@ const validateEmail = (email) =>
 function validateUser(user) {
   return {
     firstName: !validateRequired(user.firstName)
-      ? 'First Name is Required'
+      ? 'وارد کردن نام اجباری است.'
       : '',
-    lastName: !validateRequired(user.lastName) ? 'Last Name is Required' : '',
-    email: !validateEmail(user.email) ? 'Incorrect Email Format' : '',
+    lastName: !validateRequired(user.lastName) ? 'نام خانوادگی اجباری است' : '',
+    email: !validateEmail(user.email) ? 'ایمیل نامعتبر' : '',
   };
 }
