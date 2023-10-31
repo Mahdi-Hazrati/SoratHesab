@@ -161,6 +161,15 @@ const DataGrid = () => {
     enableSelectAll: false,
     positionToolbarAlertBanner :"none",
     enableMultiRowSelection: false,
+    initialState: {
+      showGlobalFilter: true, //show the global filter by default
+    },
+    muiSearchTextFieldProps: {
+      placeholder: 'جستجو',
+      sx: { minWidth: '200px' },
+      variant: 'standard',
+    },
+    
     
     muiToolbarAlertBannerProps: isLoadingUsersError
       ? {
