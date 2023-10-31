@@ -20,7 +20,7 @@ import {
   useQuery,
   useQueryClient,
 } from '@tanstack/react-query';
-import { fakeData, usStates } from './makeData';
+import { fakeData, cities, invoice_types_list, transport_list } from './makeData';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import AddIcon from '@mui/icons-material/Add';
@@ -43,90 +43,43 @@ const DataGrid = () => {
       },
       {
         accessorKey: 'invoice_date',
-        header: 'تاریخ فاکتور',
-        muiEditTextFieldProps: {
-          type: 'email',
-          required: true,
-          error: !!validationErrors?.firstName,
-          helperText: validationErrors?.firstName,
-          //remove any previous validation errors when user focuses on the input
-          onFocus: () =>
-            setValidationErrors({
-              ...validationErrors,
-              firstName: undefined,
-            }),
-          //optionally add validation checking for onBlur or onChange
-        },
+        header: 'تاریخ فاکتور'
       },
       {
         accessorKey: 'customer_name',
         header: "نام مشتری",
-        muiEditTextFieldProps: {
-          type: 'email',
-          required: true,
-          error: !!validationErrors?.lastName,
-          helperText: validationErrors?.lastName,
-          //remove any previous validation errors when user focuses on the input
-          onFocus: () =>
-            setValidationErrors({
-              ...validationErrors,
-              lastName: undefined,
-            }),
-        },
       },
       {
         accessorKey: 'invoice_amount',
         header: 'مبلغ فاکتور',
-        muiEditTextFieldProps: {
-          type: 'email',
-          required: true,
-          error: !!validationErrors?.email,
-          helperText: validationErrors?.email,
-          //remove any previous validation errors when user focuses on the input
-          onFocus: () =>
-            setValidationErrors({
-              ...validationErrors,
-              email: undefined,
-            }),
-        },
       },
       {
         accessorKey: 'invoice_type',
         header: 'نوع فاکتور',
+        editVariant: 'select',
+        editSelectOptions: invoice_types_list,
         muiEditTextFieldProps: {
-          type: 'email',
-          required: true,
-          error: !!validationErrors?.email,
-          helperText: validationErrors?.email,
-          //remove any previous validation errors when user focuses on the input
-          onFocus: () =>
-            setValidationErrors({
-              ...validationErrors,
-              email: undefined,
-            }),
+          select: true,
+          error: !!validationErrors?.state,
+          helperText: validationErrors?.state,
         },
       },
       {
         accessorKey: 'transportation',
-        header: 'نحوه ارسال',
+        header: 'نحوه پرداخت',
+        editVariant: 'select',
+        editSelectOptions: transport_list,
         muiEditTextFieldProps: {
-          type: 'email',
-          required: true,
-          error: !!validationErrors?.email,
-          helperText: validationErrors?.email,
-          //remove any previous validation errors when user focuses on the input
-          onFocus: () =>
-            setValidationErrors({
-              ...validationErrors,
-              email: undefined,
-            }),
+          select: true,
+          error: !!validationErrors?.state,
+          helperText: validationErrors?.state,
         },
       },
       {
         accessorKey: 'address',
         header: 'آدرس',
         editVariant: 'select',
-        editSelectOptions: usStates,
+        editSelectOptions: cities,
         muiEditTextFieldProps: {
           select: true,
           error: !!validationErrors?.state,
@@ -296,7 +249,7 @@ const DataGrid = () => {
             // Edit Selected ROw
             window.alert("مدال ویرایش کاربر در این حالت باز شود")
           }}
-          >
+        >
           <BorderColorIcon />
         </Button>
         <Button
@@ -305,7 +258,7 @@ const DataGrid = () => {
           onClick={() => {
             // Delete Selected ROW
             window.alert("مدال حذف کاربر در این حالت باز شود")
-            
+
           }}
         >
           <DeleteIcon />
@@ -389,8 +342,8 @@ function useUpdateUser() {
     //client side optimistic update
     onMutate: (newnewInvoice) => {
       queryClient.setQueryData(['invoices'], (prevInvoices) =>
-      prevInvoices?.map((prevInvoice) =>
-      prevInvoice.id === newnewInvoice.id ? newnewInvoice : prevInvoice,
+        prevInvoices?.map((prevInvoice) =>
+          prevInvoice.id === newnewInvoice.id ? newnewInvoice : prevInvoice,
         ),
       );
     },
@@ -409,7 +362,7 @@ function useDeleteUser() {
     //client side optimistic update
     onMutate: (invoice_id) => {
       queryClient.setQueryData(['invoices'], (prevInvoices) =>
-      prevInvoices?.filter((invoice) => invoice.id !== invoice_id),
+        prevInvoices?.filter((invoice) => invoice.id !== invoice_id),
       );
     },
   });

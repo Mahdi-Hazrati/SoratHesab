@@ -200,8 +200,9 @@ export const fakeData = [
         customers_full_name: "نیما صمدی"
     },
 ];
-//50 us states array
-export const usStates = [
+
+// 20 cities of iran
+export const cities = [
     "آذربایجان شرقی",
     "آذربایجان غربی",
     "اردبیل",
@@ -234,3 +235,16 @@ export const usStates = [
     "همدان",
     "یزد",
 ];
+export const invoice_types_list = [
+    "همکاری",
+    "خذمات",
+    "فروش",
+]
+
+export const transport_list = [
+    "نقدی",
+    "بانکی",
+    "چک",
+    "قسطی",
+
+]
