@@ -23,6 +23,9 @@ import {
 import { fakeData, usStates } from './makeData';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
+import AddIcon from '@mui/icons-material/Add';
+import PictureAsPdfIcon from '@mui/icons-material/PictureAsPdf';
+import BorderColorIcon from '@mui/icons-material/BorderColor';
 
 const DataGrid = () => {
   const [validationErrors, setValidationErrors] = useState({});
@@ -214,12 +217,40 @@ const DataGrid = () => {
     renderTopToolbarCustomActions: ({ table }) => (
       <>
         <Button
-          variant="contained"
+          sx={{ color:"black", scale:"0.8"}}
+          variant="text"
           onClick={() => {
             table.setCreatingRow(true);
           }}
         >
-          اضافه کردن کاربر جدید
+          <BorderColorIcon />
+        </Button>
+        <Button
+         sx={{ color:"black", scale:"0.8"}}
+          variant="text"
+          onClick={() => {
+            table.setCreatingRow(true);
+          }}
+        >
+          <DeleteIcon />
+        </Button>
+        <Button
+         sx={{ color:"black", scale:"0.8"}}
+          variant="text"
+          onClick={() => {
+            table.setCreatingRow(true);
+          }}
+        >
+          <AddIcon />
+        </Button>
+        <Button
+         sx={{ color:"black", scale:"0.8"}}
+          variant="text"
+          onClick={() => {
+            table.setCreatingRow(true);
+          }}
+        >
+          <PictureAsPdfIcon />
         </Button>
       </>
     ),
