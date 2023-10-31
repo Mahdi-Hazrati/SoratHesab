@@ -169,6 +169,18 @@ const DataGrid = () => {
       sx: { minWidth: '200px' },
       variant: 'standard',
     },
+
+    muiSkeletonProps: {
+      animation: 'wave',
+    },
+    muiLinearProgressProps: {
+      color: 'primary',
+    },
+    muiCircularProgressProps: {
+      color: 'primary',
+    },
+
+    
     
     
     muiToolbarAlertBannerProps: isLoadingUsersError
