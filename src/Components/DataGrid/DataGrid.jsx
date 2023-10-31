@@ -242,6 +242,7 @@ const DataGrid = () => {
     ),
     renderTopToolbarCustomActions: ({ table }) => (
       <div className="w-fit">
+        
         <Button
           sx={{ color: "black", scale: "0.8" }}
           variant="text"
@@ -252,6 +253,7 @@ const DataGrid = () => {
         >
           <BorderColorIcon />
         </Button>
+
         <Button
           sx={{ color: "black", scale: "0.8" }}
           variant="text"
