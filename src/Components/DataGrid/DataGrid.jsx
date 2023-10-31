@@ -182,6 +182,9 @@ const handleExportRows = (rows) => {
     enableSelectAll: false,
     positionToolbarAlertBanner: "none",
     enableMultiRowSelection: false,
+    positionActionsColumn: 'last',
+    enableRowActions: false,
+
     initialState: {
       showGlobalFilter: true, //show the global filter by default
     },
@@ -245,29 +248,13 @@ const handleExportRows = (rows) => {
         </DialogActions>
       </>
     ),
-    renderRowActions: ({ row, table }) => (
-      <Box sx={{ display: 'flex', gap: '1rem' }}>
-        <Tooltip title="ویرایش کاربر">
-          <IconButton color='success' onClick={() => table.setEditingRow(row)}>
-            <EditIcon />
-          </IconButton>
-        </Tooltip>
-        <Tooltip title="حذف کاربر">
-          <IconButton color="error" onClick={() => openDeleteConfirmModal(row)}>
-            <DeleteIcon />
-          </IconButton>
-        </Tooltip>
-      </Box>
-    ),
     renderTopToolbarCustomActions: ({ table }) => (
       <div className="w-fit">
-        
         <Button
           sx={{ color: "black", scale: "0.8" }}
           variant="text"
           onClick={() => {
             // Edit Selected ROw
-            // window.alert("مدال ویرایش کاربر در این حالت باز شود")
             const selectedRows = table.getSelectedRowModel().rows; //or read entire rows
             table.setEditingRow(selectedRows[0])
 
