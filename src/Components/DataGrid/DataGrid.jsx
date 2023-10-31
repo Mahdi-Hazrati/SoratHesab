@@ -251,8 +251,9 @@ const handleExportRows = (rows) => {
     renderTopToolbarCustomActions: ({ table }) => (
       <div className="w-fit">
         <Button
-          sx={{ color: "black", scale: "0.8" }}
+          sx={{scale: "0.8" }}
           variant="text"
+          color="warning"
           onClick={() => {
             // Edit Selected ROw
             const selectedRows = table.getSelectedRowModel().rows; //or read entire rows
@@ -264,8 +265,9 @@ const handleExportRows = (rows) => {
         </Button>
 
         <Button
-          sx={{ color: "black", scale: "0.8" }}
+          sx={{scale: "0.8" }}
           variant="text"
+          color="error"
           onClick={() => {
             // Delete Selected ROW
             const selectedRows = table.getSelectedRowModel().rows; //or read entire rows
@@ -276,8 +278,9 @@ const handleExportRows = (rows) => {
           <DeleteIcon />
         </Button>
         <Button
-          sx={{ color: "black", scale: "0.8" }}
+          sx={{scale: "0.9" }}
           variant="text"
+          color='success'
           onClick={() => {
             table.setCreatingRow(true);
           }}
@@ -285,8 +288,9 @@ const handleExportRows = (rows) => {
           <AddIcon />
         </Button>
         <Button
-          sx={{ color: "black", scale: "0.8" }}
+          sx={{scale: "0.8" }}
           variant="text"
+          color="error"
           disabled={table.getPrePaginationRowModel().rows.length === 0}
           onClick={() =>
             handleExportRows(table.getPrePaginationRowModel().rows)
