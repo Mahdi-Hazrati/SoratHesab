@@ -237,7 +237,7 @@ export const cities = [
 ];
 export const invoice_types_list = [
     "همکاری",
-    "خذمات",
+    "خدمات",
     "فروش",
 ]
 
