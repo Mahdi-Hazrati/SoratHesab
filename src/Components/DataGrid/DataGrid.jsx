@@ -153,11 +153,15 @@ const DataGrid = () => {
   const table = useMaterialReactTable({
     columns,
     data: fetchedUsers,
-    createDisplayMode: 'modal', //default ('row', and 'custom' are also available)
-    editDisplayMode: 'modal', //default ('row', 'cell', 'table', and 'custom' are also available)
+    createDisplayMode: 'modal',
+    editDisplayMode: 'modal',
     enableEditing: true,
     getRowId: (row) => row.id,
     enableRowSelection: true,
+    enableSelectAll: false,
+    positionToolbarAlertBanner :"none",
+    enableMultiRowSelection: false,
+    
     muiToolbarAlertBannerProps: isLoadingUsersError
       ? {
         color: 'error',
