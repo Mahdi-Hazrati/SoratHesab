@@ -1,4 +1,4 @@
-export const fakeData = [
+export const invoices_data = [
     {
         invoice_number: "156656416",
         invoice_date: "1402/02/12",

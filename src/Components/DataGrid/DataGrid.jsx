@@ -20,7 +20,7 @@ import {
   useQuery,
   useQueryClient,
 } from '@tanstack/react-query';
-import { fakeData, cities, invoice_types_list, transport_list } from './makeData';
+import { invoices_data, cities, invoice_types_list, transport_list } from './SampleData';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import AddIcon from '@mui/icons-material/Add';
@@ -324,7 +324,7 @@ function useGetUsers() {
     queryFn: async () => {
       //send api request here
       await new Promise((resolve) => setTimeout(resolve, 1000));
-      return Promise.resolve(fakeData);
+      return Promise.resolve(invoices_data);
     },
     refetchOnWindowFocus: false,
   });
