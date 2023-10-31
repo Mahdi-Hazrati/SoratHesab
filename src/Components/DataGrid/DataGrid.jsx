@@ -27,6 +27,9 @@ import AddIcon from '@mui/icons-material/Add';
 import PictureAsPdfIcon from '@mui/icons-material/PictureAsPdf';
 import BorderColorIcon from '@mui/icons-material/BorderColor';
 
+import { jsPDF } from 'jspdf'; //or use your library of choice here
+import autoTable from 'jspdf-autotable';
+
 const DataGrid = () => {
   const [validationErrors, setValidationErrors] = useState({});
 
@@ -131,6 +134,20 @@ const DataGrid = () => {
     table.setCreatingRow(null); //exit creating mode
   };
 
+  // handle save pdf 
+  const handleExportRows = (rows) => {
+    const doc = new jsPDF();
+    const tableData = rows.map((row) => Object.values(row.original));
+    const tableHeaders = columns.map((c) => c.header);
+
+    autoTable(doc, {
+      head: [tableHeaders],
+      body: tableData,
+    });
+
+    doc.save('sorathesab.pdf');
+  };
+
   //UPDATE action
   const handleSaveUser = async ({ values, table }) => {
     const newValidationErrors = validateUser(values);
@@ -159,7 +176,7 @@ const DataGrid = () => {
     getRowId: (row) => row.id,
     enableRowSelection: true,
     enableSelectAll: false,
-    positionToolbarAlertBanner :"none",
+    positionToolbarAlertBanner: "none",
     enableMultiRowSelection: false,
     initialState: {
       showGlobalFilter: true, //show the global filter by default
@@ -180,9 +197,6 @@ const DataGrid = () => {
       color: 'primary',
     },
 
-    
-    
-    
     muiToolbarAlertBannerProps: isLoadingUsersError
       ? {
         color: 'error',
@@ -192,7 +206,7 @@ const DataGrid = () => {
     muiTableContainerProps: {
       sx: {
         minHeight: '250px',
-        height:"300px"
+        height: "300px"
       },
     },
     onCreatingRowCancel: () => setValidationErrors({}),
@@ -244,7 +258,7 @@ const DataGrid = () => {
     renderTopToolbarCustomActions: ({ table }) => (
       <div className="w-fit">
         <Button
-          sx={{ color:"black", scale:"0.8"}}
+          sx={{ color: "black", scale: "0.8" }}
           variant="text"
           onClick={() => {
             table.setCreatingRow(true);
@@ -253,7 +267,7 @@ const DataGrid = () => {
           <BorderColorIcon />
         </Button>
         <Button
-         sx={{ color:"black", scale:"0.8"}}
+          sx={{ color: "black", scale: "0.8" }}
           variant="text"
           onClick={() => {
             table.setCreatingRow(true);
@@ -262,7 +276,7 @@ const DataGrid = () => {
           <DeleteIcon />
         </Button>
         <Button
-         sx={{ color:"black", scale:"0.8"}}
+          sx={{ color: "black", scale: "0.8" }}
           variant="text"
           onClick={() => {
             table.setCreatingRow(true);
@@ -271,11 +285,12 @@ const DataGrid = () => {
           <AddIcon />
         </Button>
         <Button
-         sx={{ color:"black", scale:"0.8"}}
+          sx={{ color: "black", scale: "0.8" }}
           variant="text"
-          onClick={() => {
-            table.setCreatingRow(true);
-          }}
+          disabled={table.getPrePaginationRowModel().rows.length === 0}
+          onClick={() =>
+            handleExportRows(table.getPrePaginationRowModel().rows)
+          }
         >
           <PictureAsPdfIcon />
         </Button>
