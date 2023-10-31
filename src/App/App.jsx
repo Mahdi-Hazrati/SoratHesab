@@ -2,13 +2,16 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import DataGrid from "../Components/DataGrid/DataGrid";
 import './App.css';
 import "@fontsource/vazirmatn";
+import { faIR } from '@mui/material/locale';
+
 
 const THEME = createTheme({
   typography: {
     "fontFamily": "Vazirmatn",
     "fontSize": 14,
   },
-  direction:"rtl"
+  direction:"rtl",
+  faIR
 });
 
 function App() {
