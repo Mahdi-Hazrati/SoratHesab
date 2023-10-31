@@ -21,18 +21,20 @@ import {
   useQueryClient,
 } from '@tanstack/react-query';
 import { invoices_data, cities, invoice_types_list, transport_list } from './SampleData';
+// import icons
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import AddIcon from '@mui/icons-material/Add';
 import PictureAsPdfIcon from '@mui/icons-material/PictureAsPdf';
 import BorderColorIcon from '@mui/icons-material/BorderColor';
-
-import { jsPDF } from 'jspdf'; //or use your library of choice here
+// work with pdf
+import { jsPDF } from 'jspdf';
 import autoTable from 'jspdf-autotable';
 
+// Main Grid Component
 const DataGrid = () => {
   const [validationErrors, setValidationErrors] = useState({});
-
+  // Columns are show in table
   const columns = useMemo(
     () => [
       {
@@ -119,19 +121,25 @@ const DataGrid = () => {
     table.setCreatingRow(null); //exit creating mode
   };
 
-  // handle save pdf 
-  const handleExportRows = (rows) => {
-    const doc = new jsPDF();
-    const tableData = rows.map((row) => Object.values(row.original));
-    const tableHeaders = columns.map((c) => c.header);
+// handle save pdf 
+const handleExportRows = (rows) => {
+  const doc = new jsPDF('p', 'pt', 'a4', true); // Specify 'utf8' encoding
+  doc.setFont('Arial'); // Set the font for Persian text
 
-    autoTable(doc, {
-      head: [tableHeaders],
-      body: tableData,
-    });
+  const tableData = rows.map((row) => Object.values(row.original));
+  const tableHeaders = columns.map((c) => c.header);
 
-    doc.save('sorathesab.pdf');
-  };
+  doc.autoTable({
+    head: [tableHeaders],
+    body: tableData,
+    columnStyles: {
+      0: { font: 'Arial', fontStyle: 'bold' }, // Customize styling of specific columns
+    },
+    languages: 'fa', // Set the language to Persian (fa)
+  });
+
+  doc.save('sorathesab.pdf');
+};
 
   //UPDATE action
   const handleSaveUser = async ({ values, table }) => {
