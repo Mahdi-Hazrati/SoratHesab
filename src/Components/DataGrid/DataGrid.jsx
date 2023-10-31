@@ -229,7 +229,7 @@ const DataGrid = () => {
     renderRowActions: ({ row, table }) => (
       <Box sx={{ display: 'flex', gap: '1rem' }}>
         <Tooltip title="ویرایش کاربر">
-          <IconButton onClick={() => table.setEditingRow(row)}>
+          <IconButton color='success' onClick={() => table.setEditingRow(row)}>
             <EditIcon />
           </IconButton>
         </Tooltip>
@@ -306,8 +306,8 @@ function useCreateUser() {
     },
     //client side optimistic update
     onMutate: (newInvoices) => {
-      queryClient.setQueryData(['invoices'], (prevInvoice) => [
-        ...prevInvoice,
+      queryClient.setQueryData(['invoices'], (prevInvoices) => [
+        ...prevInvoices,
         {
           ...newInvoices,
           invoice_number: (Math.random() + 1).toString(36).substring(7),
