@@ -168,6 +168,12 @@ const handleExportRows = (rows) => {
     enableEditing: true,
     getRowId: (row) => row.invoice_number,
     enableRowSelection: true,
+
+    muiTableBodyRowProps: ({ row }) => ({
+      onClick: row.getToggleSelectedHandler(),
+      sx: { cursor: 'pointer' },
+    }),
+    
     enableSelectAll: false,
     positionToolbarAlertBanner: "none",
     enableMultiRowSelection: false,
