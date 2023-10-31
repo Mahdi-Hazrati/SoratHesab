@@ -2,7 +2,6 @@ import { useMemo, useState } from 'react';
 import {
   MRT_EditActionButtons,
   MaterialReactTable,
-  // createRow,
   useMaterialReactTable,
 } from 'material-react-table';
 import {
@@ -213,14 +212,16 @@ const DataGrid = () => {
       </Box>
     ),
     renderTopToolbarCustomActions: ({ table }) => (
-      <Button
-        variant="contained"
-        onClick={() => {
-          table.setCreatingRow(true);
-        }}
-      >
-        اضافه کردن کاربر جدید
-      </Button>
+      <>
+        <Button
+          variant="contained"
+          onClick={() => {
+            table.setCreatingRow(true);
+          }}
+        >
+          اضافه کردن کاربر جدید
+        </Button>
+      </>
     ),
     state: {
       isLoading: isLoadingUsers,

@@ -1,7 +1,8 @@
 {
-  "name": "rtl-data-grid-react-app",
+  "name": "sorathesab",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://mahdi-hazrati.github.io/SoratHesab",
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
