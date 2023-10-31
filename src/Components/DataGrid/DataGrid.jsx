@@ -1,4 +1,5 @@
-import { useMemo, useState } from 'react';
+import { useMemo, useState, useEffect } from 'react';
+import axios from 'axios';
 import {
   MRT_EditActionButtons,
   MaterialReactTable,
@@ -34,6 +35,10 @@ import autoTable from 'jspdf-autotable';
 // Main Grid Component
 const DataGrid = () => {
   const [validationErrors, setValidationErrors] = useState({});
+  // useEffect(()=>{
+  //   axios.get("")
+  // }, [])
+
   // Columns are show in table
   const columns = useMemo(
     () => [
@@ -262,7 +267,10 @@ const handleExportRows = (rows) => {
           variant="text"
           onClick={() => {
             // Edit Selected ROw
-            window.alert("مدال ویرایش کاربر در این حالت باز شود")
+            // window.alert("مدال ویرایش کاربر در این حالت باز شود")
+            const selectedRows = table.getSelectedRowModel().rows; //or read entire rows
+            table.setEditingRow(selectedRows[0])
+
           }}
         >
           <BorderColorIcon />
@@ -273,7 +281,8 @@ const handleExportRows = (rows) => {
           variant="text"
           onClick={() => {
             // Delete Selected ROW
-            window.alert("مدال حذف کاربر در این حالت باز شود")
+            const selectedRows = table.getSelectedRowModel().rows; //or read entire rows
+            openDeleteConfirmModal(selectedRows[0])
 
           }}
         >
