@@ -1,165 +1,205 @@
 export const fakeData = [
     {
-        id: "9s41rp",
-        firstName: "مهدی",
-        lastName: "حضرتی",
-        email: "mahdi@hotmail.com",
-        state: "تهران",
+        invoice_number: "156656416",
+        invoice_date: "1402/02/12",
+        customer_name: "مهدی حضرتی",
+        invoice_amount: "1,800,000,000",
+        invoice_type: "همکاری",
+        transportation: "نقدی",
+        address: "تهران",
+        customers_full_name: "مهدی حضرتی"
     },
-
     {
-        id: "3m27xf",
-        firstName: "سارا",
-        lastName: "میرزایی",
-        email: "sara@gmail.com",
-        state: "اصفهان",
+        invoice_number: "463727367",
+        invoice_date: "1401/11/24",
+        customer_name: "نازنین زندی",
+        invoice_amount: "750,000,000",
+        invoice_type: "فروش",
+        transportation: "بانکی",
+        address: "شیراز",
+        customers_full_name: "نازنین زندی"
     },
-
     {
-        id: "7p19dz",
-        firstName: "علی",
-        lastName: "رحمانی",
-        email: "ali@yahoo.com",
-        state: "شیراز",
+        invoice_number: "823461785",
+        invoice_date: "1400/08/03",
+        customer_name: "علی رضایی",
+        invoice_amount: "650,000,000",
+        invoice_type: "خدمات",
+        transportation: "بانکی",
+        address: "اصفهان",
+        customers_full_name: "علی رضایی"
     },
-
     {
-        id: "5b63mt",
-        firstName: "نازنین",
-        lastName: "کریمی",
-        email: "nazanin@outlook.com",
-        state: "مشهد",
+        invoice_number: "189734652",
+        invoice_date: "1403/06/16",
+        customer_name: "سارا محمدی",
+        invoice_amount: "2,300,000,000",
+        invoice_type: "فروش",
+        transportation: "نقدی",
+        address: "تهران",
+        customers_full_name: "سارا محمدی"
     },
-
     {
-        id: "1r82vm",
-        firstName: "حسین",
-        lastName: "احمدی",
-        email: "hossein@gmail.com",
-        state: "تهران",
+        invoice_number: "536754267",
+        invoice_date: "1403/03/28",
+        customer_name: "محمد آقاجانی",
+        invoice_amount: "900,000,000",
+        invoice_type: "همکاری",
+        transportation: "بانکی",
+        address: "مشهد",
+        customers_full_name: "محمد آقاجانی"
     },
-
     {
-        id: "6k44op",
-        firstName: "مریم",
-        lastName: "صدرا",
-        email: "maryam@hotmail.com",
-        state: "شیراز",
+        invoice_number: "189475912",
+        invoice_date: "1401/01/09",
+        customer_name: "نیلوفر حسینی",
+        invoice_amount: "1,200,000,000",
+        invoice_type: "خدمات",
+        transportation: "نقدی",
+        address: "اصفهان",
+        customers_full_name: "نیلوفر حسینی"
     },
-
     {
-        id: "2v73gf",
-        firstName: "امیر",
-        lastName: "رضایی",
-        email: "amir@yahoo.com",
-        state: "اصفهان",
+        invoice_number: "759263418",
+        invoice_date: "1402/12/14",
+        customer_name: "مهرداد شاه حسینی",
+        invoice_amount: "3,500,000,000",
+        invoice_type: "فروش",
+        transportation: "بانکی",
+        address: "تهران",
+        customers_full_name: "مهرداد شاه حسینی"
     },
-
     {
-        id: "4t29cn",
-        firstName: "فاطمه",
-        lastName: "حسینی",
-        email: "fateme@gmail.com",
-        state: "مشهد",
+        invoice_number: "321874319",
+        invoice_date: "1403/09/06",
+        customer_name: "حمیده سلطانی",
+        invoice_amount: "600,000,000",
+        invoice_type: "همکاری",
+        transportation: "نقدی",
+        address: "تبریز",
+        customers_full_name: "حمیده سلطانی"
     },
-
     {
-        id: "8d17hx",
-        firstName: "هادی",
-        lastName: "نوروزی",
-        email: "hadi@hotmail.com",
-        state: "تهران",
+        invoice_number: "958267348",
+        invoice_date: "1401/04/21",
+        customer_name: "بهناز قاسمی",
+        invoice_amount: "2,150,000,000",
+        invoice_type: "خدمات",
+        transportation: "نقدی",
+        address: "شیراز",
+        customers_full_name: "بهناز قاسمی"
     },
-
     {
-        id: "3o12lf",
-        firstName: "زهرا",
-        lastName: "رضوی",
-        email: "zahra@yahoo.com",
-        state: "شیراز",
+        invoice_number: "185729453",
+        invoice_date: "1400/11/17",
+        customer_name: "رضا کریمی",
+        invoice_amount: "950,000,000",
+        invoice_type: "فروش",
+        transportation: "بانکی",
+        address: "تهران",
+        customers_full_name: "رضا کریمی"
     },
-
     {
-        id: "6w04vb",
-        firstName: "ایمان",
-        lastName: "کاظمی",
-        email: "iman@gmail.com",
-        state: "اصفهان",
+        invoice_number: "725186321",
+        invoice_date: "1402/06/08",
+        customer_name: "نگین محمدزاده",
+        invoice_amount: "1,800,000,000",
+        invoice_type: "همکاری",
+        transportation: "بانکی",
+        address: "اصفهان",
+        customers_full_name: "نگین محمدزاده"
     },
-
     {
-        id: "9i02pl",
-        firstName: "ناصر",
-        lastName: "صفری",
-        email: "naser@outlook.com",
-        state: "مشهد",
+        invoice_number: "469521739",
+        invoice_date: "1401/02/17",
+        customer_name: "امیرحسین رضوی",
+        invoice_amount: "1,250,000,000",
+        invoice_type: "خدمات",
+        transportation: "نقدی",
+        address: "شیراز",
+        customers_full_name: "امیرحسین رضوی"
     },
-
     {
-        id: "5q31jh",
-        firstName: "شیما",
-        lastName: "عبادی",
-        email: "shima@hotmail.com",
-        state: "تهران",
+        invoice_number: "827492631",
+        invoice_date: "1403/08/20",
+        customer_name: "آرزو عبداللهی",
+        invoice_amount: "3,200,000,000",
+        invoice_type: "فروش",
+        transportation: "بانکی",
+        address: "مشهد",
+        customers_full_name: "آرزو عبداللهی"
     },
-
     {
-        id: "1a48yd",
-        firstName: "حمید",
-        lastName: "رستمی",
-        email: "hamid@yahoo.com",
-        state: "اصفهان",
+        invoice_number: "315297486",
+        invoice_date: "1400/09/25",
+        customer_name: "محمدجواد علوی",
+        invoice_amount: "700,000,000",
+        invoice_type: "همکاری",
+        transportation: "نقدی",
+        address: "تهران",
+        customers_full_name: "محمدجواد علوی"
     },
-
     {
-        id: "4e23kn",
-        firstName: "معصومه",
-        lastName: "جعفری",
-        email: "maasoume@gmail.com",
-        state: "شیراز",
+        invoice_number: "942735168",
+        invoice_date: "1402/05/02",
+        customer_name: "سمانه حسینی",
+        invoice_amount: "2,450,000,000",
+        invoice_type: "خدمات",
+        transportation: "نقدی",
+        address: "اصفهان",
+        customers_full_name: "سمانه حسینی"
     },
-
     {
-        id: "8t15pt",
-        firstName: "رضا",
-        lastName: "محمدی",
-        email: "reza@hotmail.com",
-        state: "مشهد",
+        invoice_number: "287654123",
+        invoice_date: "1401/12/13",
+        customer_name: "امیر عباسی",
+        invoice_amount: "1,100,000,000",
+        invoice_type: "فروش",
+        transportation: "بانکی",
+        address: "تهران",
+        customers_full_name: "امیر عباسی"
     },
-
     {
-        id: "2y30mq",
-        firstName: "نرگس",
-        lastName: "شفیعی",
-        email: "narges@yahoo.com",
-        state: "تهران",
+        invoice_number: "719342586",
+        invoice_date: "1403/07/26",
+        customer_name: "مینا رستمی",
+        invoice_amount: "600,000,000",
+        invoice_type: "همکاری",
+        transportation: "نقدی",
+        address: "تبریز",
+        customers_full_name: "مینا رستمی"
     },
-
     {
-        id: "7u24of",
-        firstName: "محمد",
-        lastName: "نجفی",
-        email: "mohammad@outlook.com",
-        state: "اصفهان",
+        invoice_number: "951287643",
+        invoice_date: "1401/03/23",
+        customer_name: "محمدرضا رضوانی",
+        invoice_amount: "1,900,000,000",
+        invoice_type: "خدمات",
+        transportation: "بانکی",
+        address: "مشهد",
+        customers_full_name: "محمدرضا رضوانی"
     },
-
     {
-        id: "3j32pl",
-        firstName: "سمیه",
-        lastName: "محمدیان",
-        email: "somyeh@gmail.com",
-        state: "شیراز",
+        invoice_number: "436729518",
+        invoice_date: "1400/10/08",
+        customer_name: "فاطمه قاضی",
+        invoice_amount: "800,000,000",
+        invoice_type: "فروش",
+        transportation: "بانکی",
+        address: "تهران",
+        customers_full_name: "فاطمه قاضی"
     },
-
     {
-        id: "6g04rd",
-        firstName: "علی",
-        lastName: "نوابی",
-        email: "ali@yahoo.com",
-        state: "مشهد",
+        invoice_number: "821736495",
+        invoice_date: "1402/03/17",
+        customer_name: "نیما صمدی",
+        invoice_amount: "1,500,000,000",
+        invoice_type: "همکاری",
+        transportation: "نقدی",
+        address: "شیراز",
+        customers_full_name: "نیما صمدی"
     },
 ];
-
 //50 us states array
 export const usStates = [
     "آذربایجان شرقی",

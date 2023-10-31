@@ -36,14 +36,14 @@ const DataGrid = () => {
   const columns = useMemo(
     () => [
       {
-        accessorKey: 'id',
-        header: 'شناسه کاربری',
+        accessorKey: 'invoice_number',
+        header: 'شناسه فاکتور',
         enableEditing: false,
         size: 80,
       },
       {
-        accessorKey: 'firstName',
-        header: 'نام',
+        accessorKey: 'invoice_date',
+        header: 'تاریخ فاکتور',
         muiEditTextFieldProps: {
           type: 'email',
           required: true,
@@ -59,8 +59,8 @@ const DataGrid = () => {
         },
       },
       {
-        accessorKey: 'lastName',
-        header: 'نام خانوادگی',
+        accessorKey: 'customer_name',
+        header: "نام مشتری",
         muiEditTextFieldProps: {
           type: 'email',
           required: true,
@@ -75,8 +75,8 @@ const DataGrid = () => {
         },
       },
       {
-        accessorKey: 'email',
-        header: 'ایمیل',
+        accessorKey: 'invoice_amount',
+        header: 'مبلغ فاکتور',
         muiEditTextFieldProps: {
           type: 'email',
           required: true,
@@ -91,7 +91,39 @@ const DataGrid = () => {
         },
       },
       {
-        accessorKey: 'state',
+        accessorKey: 'invoice_type',
+        header: 'نوع فاکتور',
+        muiEditTextFieldProps: {
+          type: 'email',
+          required: true,
+          error: !!validationErrors?.email,
+          helperText: validationErrors?.email,
+          //remove any previous validation errors when user focuses on the input
+          onFocus: () =>
+            setValidationErrors({
+              ...validationErrors,
+              email: undefined,
+            }),
+        },
+      },
+      {
+        accessorKey: 'transportation',
+        header: 'نحوه ارسال',
+        muiEditTextFieldProps: {
+          type: 'email',
+          required: true,
+          error: !!validationErrors?.email,
+          helperText: validationErrors?.email,
+          //remove any previous validation errors when user focuses on the input
+          onFocus: () =>
+            setValidationErrors({
+              ...validationErrors,
+              email: undefined,
+            }),
+        },
+      },
+      {
+        accessorKey: 'address',
         header: 'آدرس',
         editVariant: 'select',
         editSelectOptions: usStates,
