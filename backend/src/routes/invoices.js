@@ -19,7 +19,11 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
   try {
     const data = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
-    const newInvoice = { ...req.body, id: uuidv4() };
+    const uuid = uuidv4();
+    // Remove hyphens and limit the length to 8 characters
+    const id = uuid.replace(/-/g, '').substring(0, 9);
+
+    const newInvoice = { ...req.body, invoice_number: id };
     data.push(newInvoice);
     fs.writeFileSync(dataPath, JSON.stringify(data, null, 2));
     res.status(201).json(newInvoice);
