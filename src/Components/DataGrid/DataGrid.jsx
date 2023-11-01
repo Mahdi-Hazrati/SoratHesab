@@ -35,9 +35,7 @@ import autoTable from 'jspdf-autotable';
 // Main Grid Component
 const DataGrid = () => {
   const [validationErrors, setValidationErrors] = useState({});
-  // useEffect(()=>{
-  //   axios.get("")
-  // }, [])
+  
 
   // Columns are show in table
   const columns = useMemo(
@@ -106,7 +104,7 @@ const DataGrid = () => {
     isError: isLoadingUsersError,
     isFetching: isFetchingUsers,
     isLoading: isLoadingUsers,
-  } = useGetUsers();
+  } = useGetApi();
   //call UPDATE hook
   const { mutateAsync: updateUser, isPending: isUpdatingUser } =
     useUpdateUser();
@@ -171,6 +169,7 @@ const handleExportRows = (rows) => {
     createDisplayMode: 'modal',
     editDisplayMode: 'modal',
     enableEditing: true,
+
     getRowId: (row) => row.invoice_number,
     enableRowSelection: true,
 
@@ -247,7 +246,7 @@ const handleExportRows = (rows) => {
         <DialogContent
           sx={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}
         >
-          {internalEditComponents} {/* or render custom edit components here */}
+          {internalEditComponents}
         </DialogContent>
         <DialogActions>
           <MRT_EditActionButtons variant="text" table={table} row={row} />
@@ -339,14 +338,14 @@ function useCreateUser() {
   });
 }
 
-//READ hook (get users from api)
-function useGetUsers() {
+//READ hook (get request from api)
+function useGetApi() {
   return useQuery({
     queryKey: ['invoices'],
     queryFn: async () => {
       //send api request here
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      return Promise.resolve(invoices_data);
+      const response = await axios.get('http://localhost:3001/api');
+      return Promise.resolve(response.data);
     },
     refetchOnWindowFocus: false,
   });
