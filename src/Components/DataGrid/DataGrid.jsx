@@ -97,7 +97,7 @@ const DataGrid = () => {
 
   //call CREATE hook
   const { mutateAsync: createUser, isPending: isCreatingUser } =
-    useCreateUser();
+    usePostApi();
   //call READ hook
   const {
     data: fetchedUsers = [],
@@ -317,13 +317,15 @@ const handleExportRows = (rows) => {
 };
 
 //CREATE hook (post new user to api)
-function useCreateUser() {
+function usePostApi() {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: async (invoice) => {
       //send api update request here
-      await new Promise((resolve) => setTimeout(resolve, 1000)); //fake api call
-      return Promise.resolve();
+      console.log(invoice)
+      const response = await axios.post("http://localhost:3001/api", invoice)
+      console.log("POST Request", response)
+      return Promise.resolve(invoice);
     },
     //client side optimistic update
     onMutate: (newInvoices) => {
@@ -331,7 +333,7 @@ function useCreateUser() {
         ...prevInvoices,
         {
           ...newInvoices,
-          invoice_number: (Math.random() + 1).toString(36).substring(7),
+          invoice_number: (Math.random() + 1).toString(36).substring(4),
         },
       ]);
     },
