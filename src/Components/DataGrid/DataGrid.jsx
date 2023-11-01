@@ -110,7 +110,7 @@ const DataGrid = () => {
     useUpdateUser();
   //call DELETE hook
   const { mutateAsync: deleteUser, isPending: isDeletingUser } =
-    useDeleteUser();
+    useDeleteApi();
 
   //CREATE action
   const handleCreateUser = async ({ values, table }) => {
@@ -374,7 +374,7 @@ function useUpdateUser() {
 }
 
 //DELETE hook (delete user in api)
-function useDeleteUser() {
+function useDeleteApi() {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: async (invoiceId) => {
