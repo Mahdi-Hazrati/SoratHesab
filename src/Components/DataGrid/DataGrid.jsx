@@ -262,7 +262,12 @@ const handleExportRows = (rows) => {
           onClick={() => {
             // Edit Selected ROw
             const selectedRows = table.getSelectedRowModel().rows; //or read entire rows
-            table.setEditingRow(selectedRows[0])
+            if(selectedRows[0]){
+              table.setEditingRow(selectedRows[0])
+
+            }else{
+              window.alert("لطفا یک ردیف را انتخاب کنید سپس اقدام به ویرایش کنید.")
+            }
 
           }}
         >
