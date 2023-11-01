@@ -70,16 +70,6 @@
     "customers_full_name": "بهناز قاسمی"
   },
   {
-    "invoice_number": "185729453",
-    "invoice_date": "1400/11/17",
-    "customer_name": "رضا کریمی",
-    "invoice_amount": "950,000,000",
-    "invoice_type": "فروش",
-    "transportation": "بانکی",
-    "address": "تهران",
-    "customers_full_name": "رضا کریمی"
-  },
-  {
     "invoice_number": "725186321",
     "invoice_date": "1402/06/08",
     "customer_name": "نگین محمدزاده",

@@ -276,7 +276,12 @@ const handleExportRows = (rows) => {
           onClick={() => {
             // Delete Selected ROW
             const selectedRows = table.getSelectedRowModel().rows; //or read entire rows
-            openDeleteConfirmModal(selectedRows[0])
+            if(selectedRows[0]){
+              openDeleteConfirmModal(selectedRows[0])
+
+            }else{
+              window.alert("لطفا یک ردیف را انتخاب کنید سپس اقدام به حذف کنید.")
+            }
 
           }}
         >
