@@ -38,7 +38,7 @@ router.put('/:id', (req, res) => {
     const id = req.params.id;
     const data = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
     const updatedInvoice = { ...req.body, id };
-    const index = data.findIndex((invoice) => invoice.id === id);
+    const index = data.findIndex((invoice) => invoice.invoice_number === id);
     if (index === -1) {
       return res.status(404).json({ error: 'Invoice not found' });
     }
@@ -55,7 +55,7 @@ router.delete('/:id', (req, res) => {
   try {
     const id = req.params.id;
     const data = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
-    const index = data.findIndex((invoice) => invoice.id === id);
+    const index = data.findIndex((invoice) => invoice.invoice_number === id);
     if (index === -1) {
       return res.status(404).json({ error: 'Invoice not found' });
     }
