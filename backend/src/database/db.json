@@ -20,16 +20,6 @@
     "customers_full_name": "علی رضایی"
   },
   {
-    "invoice_number": "189734652",
-    "invoice_date": "1403/06/16",
-    "customer_name": "سارا محمدی",
-    "invoice_amount": "2,300,000,000",
-    "invoice_type": "فروش",
-    "transportation": "نقدی",
-    "address": "تهران",
-    "customers_full_name": "سارا محمدی"
-  },
-  {
     "invoice_number": "536754267",
     "invoice_date": "1403/03/28",
     "customer_name": "محمد آقاجانی",

@@ -379,13 +379,14 @@ function useDeleteApi() {
   return useMutation({
     mutationFn: async (invoiceId) => {
       //send api update request here
-      await new Promise((resolve) => setTimeout(resolve, 1000)); //fake api call
-      return Promise.resolve();
+      const response = await axios.delete(`http://localhost:3001/api/${invoiceId}`)
+      console.log("You want to delete ", invoiceId)
+      return Promise.resolve(invoiceId);
     },
     //client side optimistic update
     onMutate: (invoice_id) => {
       queryClient.setQueryData(['invoices'], (prevInvoices) =>
-        prevInvoices?.filter((invoice) => invoice.id !== invoice_id),
+        prevInvoices?.filter((invoice) => invoice.invoice_number !== invoice_id),
       );
     },
   });
