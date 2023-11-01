@@ -107,7 +107,7 @@ const DataGrid = () => {
   } = useGetApi();
   //call UPDATE hook
   const { mutateAsync: updateUser, isPending: isUpdatingUser } =
-    useUpdateUser();
+    usePutApi();
   //call DELETE hook
   const { mutateAsync: deleteUser, isPending: isDeletingUser } =
     useDeleteApi();
@@ -364,13 +364,15 @@ function useGetApi() {
 }
 
 //UPDATE hook (put user in api)
-function useUpdateUser() {
+function usePutApi() {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: async (invoice) => {
       //send api update request here
-      await new Promise((resolve) => setTimeout(resolve, 1000)); //fake api call
-      return Promise.resolve();
+      const id = invoice.invoice_number
+      const response = await axios.put(`http://localhost:3001/api/${id}`, invoice)
+      console.log("You are try to update", invoice)
+      return Promise.resolve(invoice);
     },
     //client side optimistic update
     onMutate: (newnewInvoice) => {
