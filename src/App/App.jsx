@@ -19,7 +19,7 @@ function App() {
     <ThemeProvider theme={THEME}>
       <div className="container">
         <div className="p-10">
-          <h1 className="min-w-full h-10 text-right text-lg">صورتحساب ها</h1>
+          <h1 className="min-w-full h-10 text-right text-md select-none">صورتحساب / مدیریت فاکتور ها</h1>
           <DataGrid />
         </div>
       </div>
