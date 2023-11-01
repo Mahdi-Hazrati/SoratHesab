@@ -7,7 +7,7 @@ const port = 3001;
 
 app.use(bodyParser.json());
 
-app.use('/invoices', invoicesRouter);
+app.use('/', invoicesRouter);
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
