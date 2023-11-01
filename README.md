@@ -1,57 +1,88 @@
-# SoratHesab Invoice Management React App
+# SoratHesab 💼
 
-![SoratHesab v1.0 App Screenshot](./docs/screenshot.png)
+## Invoice Management Web Application 📄
 
-This is a React app for managing invoices. It allows you to view, add, edit, and delete invoice records.
+SoratHesab is a powerful web application for managing your invoices effortlessly! Keep your financial records organized with the click of a button. Read on to explore its features and the technologies behind it.
 
-## Summary
+![SoratHesab Invoice Management Web Application Screenshot](./docs/screenshot.png)
 
-- Displays invoices in a table with pagination
-- Allows adding, editing, and deleting invoice records
-- Implements optimistic updates for a smooth UI
-- Uses React Query for data fetching and caching
-- Leverages Material UI for styling
-- Exports invoice data to PDF
+## Features 🚀
 
-## Installation
+- ➕ **Create**: Easily add new invoices with all the necessary details – invoice number, date, customer name, amount, type, transportation, and address.
 
-1. Clone the repo
+- 👁️‍🗨️ **Read**: Get a quick overview of your invoices, with handy filtering and searching options to find what you need.
+
+- 🖋️ **Update**: Keep your data up-to-date by editing existing invoices.
+
+- ❌ **Delete**: Remove invoices that are no longer needed, keeping your records tidy.
+
+- 📥 **Export to PDF**: One-click export of your invoice list to a PDF file – perfect for printing or sharing.
+
+## Technologies Used 🛠️
+
+- **Frontend**:
+  - 🌐 React: A JavaScript library for building engaging user interfaces.
+  - 💅 Material-UI: A fantastic React UI framework for creating modern, responsive web apps.
+  - 📊 Material-React-Table: Simplifies data table creation in Material-UI.
+  - 🪙 react-query: Handles data fetching and state management in your React app.
+  - 📜 jspdf: Generates PDF files effortlessly.
+  - 📡 axios: A promise-based HTTP client for smooth API requests.
+  - 🔥 Icons from Material-UI for a sleek user interface.
+
+- **Backend**: (Check the `backend` folder for more details)
+  - 🏢 A server-side component powered by Node.js, providing APIs and using JSON files as a database.
+
+## Project Structure 🏗️
+
+- **Frontend**: The main application code and UI components reside here.
+
+- **backend**: Explore the `backend` folder for server-side code, Node.js, and the JSON database.
+
+## Usage 🚗
+
+1. 🧬 Clone the repository.
 
 ```
 git clone https://github.com/Mahdi-Hazrati/SoratHesab.git
 ```
 
-2. Install dependencies
 
-```
+2. 📦 Install React app dependencies using `npm install`.
+```bash
 npm install
 ```
 
-3. Start the dev server
-
+3. 📦 Install Node JS app dependencies using `npm install`.
+```bash
+cd backend
+npm install
 ```
-npm start
+
+4. 🖥️ Run the backend Server, dive into the `backend` folder.
+```
+backend/  npm start
 ```
 
-## Usage
+3. 🚀 Start the frontend with `npm start`.
+```
+/  npm start
+```
 
-The app displays invoices in a table with pagination. You can:
+4.  App Main Route
+```
+React app [Front-End] http://localhost:3000/
+Node  app [Back-End ] http://localhost:3001/api
+```
 
-- View, search, and paginate invoices
-- Add new invoices by clicking the + button
-- Edit invoices by selecting a row and clicking the edit icon
-- Delete invoices by selecting a row and clicking the delete icon  
-- Export invoices to PDF by clicking the PDF icon
+## Contributing 🤝
 
-Edited invoices are optimistically updated for a smooth UI experience.
+👏 Contributions are encouraged! Open issues or submit pull requests to make SoratHesab even better.
 
-## Credits
+## License 📜
 
-This app was built with:
+This project is licensed under the [MIT License](LICENSE).
 
-- [React](https://reactjs.org/) - Frontend framework
-- [React Query](https://tanstack.com/query/latest) - Data fetching and caching
-- [Material UI](https://mui.com/) - Styling and components
-- [jspdf](https://github.com/LukSab/jspdf) - PDF generation
+---
 
-The data is mock sample data for demonstration. The app uses React Query's mutations to optimistically update the cache on edits without a real API.
+Feel free to personalize this README further to give it your unique touch and provide a clear and engaging guide for anyone interested in using or contributing to SoratHesab.
+Another project developed by Mehdi Happy coding! 😄
