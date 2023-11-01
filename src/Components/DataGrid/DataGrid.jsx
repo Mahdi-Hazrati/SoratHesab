@@ -366,7 +366,7 @@ function useUpdateUser() {
     onMutate: (newnewInvoice) => {
       queryClient.setQueryData(['invoices'], (prevInvoices) =>
         prevInvoices?.map((prevInvoice) =>
-          prevInvoice.id === newnewInvoice.id ? newnewInvoice : prevInvoice,
+          prevInvoice.invoice_number === newnewInvoice.invoice_number ? newnewInvoice : prevInvoice,
         ),
       );
     },

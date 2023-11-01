@@ -90,16 +90,6 @@
     "customers_full_name": "نگین محمدزاده"
   },
   {
-    "invoice_number": "469521739",
-    "invoice_date": "1401/02/17",
-    "customer_name": "امیرحسین رضوی",
-    "invoice_amount": "1,250,000,000",
-    "invoice_type": "خدمات",
-    "transportation": "نقدی",
-    "address": "شیراز",
-    "customers_full_name": "امیرحسین رضوی"
-  },
-  {
     "invoice_number": "827492631",
     "invoice_date": "1403/08/20",
     "customer_name": "آرزو عبداللهی",
