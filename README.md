@@ -84,5 +84,4 @@ This project is licensed under the [MIT License](LICENSE).
 
 ---
 
-Feel free to personalize this README further to give it your unique touch and provide a clear and engaging guide for anyone interested in using or contributing to SoratHesab.
-Another project developed by Mehdi Happy coding! 😄
+another project developed by Mehdi for opensource | Happy coding! 😄
